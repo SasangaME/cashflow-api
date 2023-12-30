@@ -1,7 +1,5 @@
-import express, { Request, Response, NextFunction, Router } from 'express';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import { buildRouter } from './controllers/build.controller';
+import express, { Request, Response, NextFunction } from 'express';
+import { configMiddleware } from './config/middleware.config';
 
 // set env configs here
 
@@ -9,14 +7,7 @@ const app = express();
 const port = 3000;
 const message = "Hello World";
 
-app.use(cors({ origin: '*' }));
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-export const router = Router();
-router.use('/api/build', buildRouter);
-app.use(router);
+configMiddleware(app);
 
 app.get('/', (req: Request, res: Response) => {
     res.send(`${message}`);
