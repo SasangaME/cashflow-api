@@ -1,0 +1,6 @@
+GET http://localhost:4001/api/exception/203
+
+###
+
+# NOT FOUND
+GET http://localhost:4001/api/exception/404
