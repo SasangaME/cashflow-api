@@ -1,10 +1,12 @@
 import express, { Request, Response, NextFunction } from 'express';
 import { configMiddleware } from './config/middleware.config';
+import { config } from 'dotenv';
 
-// set env configs here
+config({ path: './env/.env.dev' });
 
 const app = express();
-const port = 3000;
+
+const port = process.env.PORT || 3000;
 const message = "Hello World";
 
 configMiddleware(app);
