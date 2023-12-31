@@ -1,3 +1,4 @@
 GET http://localhost:4001/api/build
+role: user
 
 ###
