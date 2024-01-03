@@ -7,3 +7,7 @@ export function getBuild(): BuildDto {
     }
     return build;
 }
+
+function privateFunction() {
+    console.log("private function");
+}
