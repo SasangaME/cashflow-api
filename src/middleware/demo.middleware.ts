@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import {Request, Response, NextFunction} from 'express';
 
 export async function hasRole(req: Request, res: Response, next: NextFunction) {
     await next();
@@ -14,7 +14,7 @@ export function paramMiddleware(role: string) {
             }
             res.status(401).json(error);
         } else {
-            await next();
+            next();
         }
     };
 }
