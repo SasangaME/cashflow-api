@@ -1,7 +1,10 @@
-import {hashPassword} from "../utils/password.util";
+import {createToken, verifyToken} from "../utils/jwt.util";
 
+export async function dummyService(): Promise<string> {
+    return await createToken('user1', 'sasanga');
+}
 
-export async function dummyService(password: string): Promise<string> {
-    return await hashPassword(password);
+export async function dummyDecode(token: string) {
+    return await verifyToken(token);
 }
 
