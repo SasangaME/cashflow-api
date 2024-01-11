@@ -1,9 +1,12 @@
 import jwt from 'jsonwebtoken';
 import {ApplicationException} from "../exceptions/application.exception";
 
+const JWT_SECRET = process.env.SECRET || "DEFAULT";
+const JWT_EXPIRY_TIME = parseInt(process.env.EXPIRY || "300");
+
 export async function createToken(userId: string, username: string): Promise<string> {
     return jwt.sign({id: userId, name: username},
-        'SECRET_KEY', {expiresIn: 2});
+        JWT_SECRET, {expiresIn: JWT_EXPIRY_TIME});
 }
 
 export async function verifyToken(token: string) {
