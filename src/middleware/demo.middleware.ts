@@ -1,4 +1,4 @@
-import {Request, Response, NextFunction} from 'express';
+import { Request, Response, NextFunction } from 'express';
 
 export async function hasRole(req: Request, res: Response, next: NextFunction) {
     await next();
@@ -19,7 +19,7 @@ export function paramMiddleware(role: string) {
     };
 }
 
-type ErrorDto = {
+interface ErrorDto {
     message: string;
     stackTrace: string;
 }
